@@ -11,8 +11,8 @@ export const Filters = styled.div`
     font-family: inherit;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #333330;
-    color: #eeeee0;
+    background-color: #333333;
+    color: #eeeeee;
     font-weight: 400;
     text-transform: uppercase;
     border: none;
@@ -20,7 +20,7 @@ export const Filters = styled.div`
     transition: background-color 0.3s;
 
     &.active {
-      background-color: #666660;
+      background-color: #666666;
       color: white;
     }
   }
@@ -59,11 +59,18 @@ export const GridContainer = styled.div`
     max-width: 17rem;
     aspect-ratio: 17 / 74;
   }
+
+  @media screen and (min-width: 2560px) {
+    grid-template-columns: repeat(12, minmax(1fr, 9.375rem));
+    max-width: 116.25rem;
+    aspect-ratio: 31 / 12;
+    gap: 2.5rem;
+  }
 `;
 
 export const GridItems = styled.div`
   display: block;
-  background-color: #eeeee0;
+  background-color: #eeeeee;
   padding: 1rem;
   font-weight: 300;
   cursor: pointer;
@@ -71,7 +78,7 @@ export const GridItems = styled.div`
 
   opacity: ${({ dimmed }) => (dimmed ? 0.65 : 1)};
   filter: ${({ dimmed }) =>
-    dimmed ? "grayscale(50%) brightness(0.65)" : "none"};
+    dimmed ? "grayscale(0.65) opacity(0.65)" : "none"};
   pointer-events: ${({ dimmed }) => (dimmed ? "none" : "auto")};
 
   &:hover {
