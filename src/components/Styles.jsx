@@ -29,12 +29,11 @@ export const Filters = styled.div`
 export const GridContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(12, minmax(1fr, 7.5rem));
+  grid-template-columns: repeat(auto-fill, 1fr);
   grid-template-areas:
     "box1 box2 box3 box4"
     "box5 box2 box6 box7";
   gap: 2rem;
-  max-width: 93rem;
   aspect-ratio: 31 / 12;
   margin: 0 auto;
 
@@ -61,20 +60,20 @@ export const GridContainer = styled.div`
   }
 
   @media screen and (min-width: 2560px) {
-    grid-template-columns: repeat(12, minmax(1fr, 9.375rem));
+    grid-template-columns: repeat(12, minmax(9.375rem, 1fr));
     max-width: 116.25rem;
-    aspect-ratio: 31 / 12;
     gap: 2.5rem;
   }
 `;
 
 export const GridItems = styled.div`
-  display: block;
   background-color: #eeeeee;
-  padding: 1rem;
   font-weight: 300;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
 
   opacity: ${({ dimmed }) => (dimmed ? 0.65 : 1)};
   filter: ${({ dimmed }) =>
@@ -88,24 +87,32 @@ export const GridItems = styled.div`
   &.box-one {
     grid-area: box1;
     grid-column: span 3;
+    @media screen and (max-width: 650px) {
+      grid-column: span 2;
+      aspect-ratio: 1/1;
+    }
   }
   &.box-two {
     grid-area: box2;
     grid-column: span 2;
     @media screen and (max-width: 650px) {
-      grid-column: span 3;
+      aspect-ratio: 1/1;
     }
   }
   &.box-three {
     grid-area: box3;
     grid-column: span 2;
     @media screen and (max-width: 650px) {
-      grid-column: span 3;
+      aspect-ratio: 1/1;
     }
   }
   &.box-four {
     grid-area: box4;
     grid-column: span 3;
+    @media screen and (max-width: 650px) {
+      grid-column: span 2;
+      aspect-ratio: 1/1;
+    }
   }
   &.box-five {
     grid-area: box5;
