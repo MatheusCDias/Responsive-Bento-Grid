@@ -24,12 +24,18 @@ export const Filters = styled.div`
       color: white;
     }
   }
+  
+  @media screen and (min-width: 2560px) {
+    gap: 2.5rem;
+    max-width: 116.25rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const GridContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-template-areas:
     "box1 box2 box3 box4"
     "box5 box2 box6 box7";
@@ -39,6 +45,7 @@ export const GridContainer = styled.div`
 
   @media screen and (max-width: 1200px) {
     grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-areas:
       "box1 box2"
       "box5 box2"
@@ -50,6 +57,7 @@ export const GridContainer = styled.div`
 
   @media screen and (max-width: 650px) {
     grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-areas:
       "box1"
       "box2"
@@ -60,7 +68,6 @@ export const GridContainer = styled.div`
   }
 
   @media screen and (min-width: 2560px) {
-    grid-template-columns: repeat(12, minmax(9.375rem, 1fr));
     max-width: 116.25rem;
     gap: 2.5rem;
   }
@@ -70,10 +77,9 @@ export const GridItems = styled.div`
   background-color: #eeeeee;
   font-weight: 300;
   cursor: pointer;
-  padding: 1rem;
   box-sizing: border-box;
-  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out,
-    opacity 0.5s ease-in-out;
+  transition: transform 0.8s ease-in-out, filter 0.8s ease-in-out,
+    opacity 0.8s ease-in-out;
 
   opacity: ${({ dimmed }) => (dimmed ? 0.65 : 1)};
   filter: ${({ dimmed }) =>
@@ -82,11 +88,13 @@ export const GridItems = styled.div`
 
   &:hover {
     transform: scale(1.05);
+    filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.25));
   }
 
   &.box-one {
     grid-area: box1;
     grid-column: span 3;
+    box-sizing: border-box;
     @media screen and (max-width: 650px) {
       grid-column: span 2;
       aspect-ratio: 1/1;
@@ -135,4 +143,8 @@ export const GridItems = styled.div`
       display: none;
     }
   }
+`;
+
+export const BoxContent = styled.div`
+
 `;

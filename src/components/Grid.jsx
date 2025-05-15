@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Filters, GridContainer, GridItems } from "./Styles";
+import { Filters, GridContainer, GridItems, BoxContent } from "./Styles";
+import "material-symbols";
 
 const boxes = [
   { id: 1, label: "1", className: "box-one", tags: ["1"] },
@@ -49,20 +50,8 @@ export default function Grid() {
             data-tags={box.tags.join(" ")}
             dimmed={isDimmed(box.tags)}
           >
-            <div class="top">
-              <div class="main-header-content">
-                <div class="icon">
-                  <span class="material-symbols-outlined">code</span>
-                </div>
-                <div class="title">
-                  <h1>Title</h1>
-                  <h2>Subtitle</h2>
-                </div>
-              </div>
-              <div class="tag">
-                <h3>Date</h3>
-              </div>
-            </div>
+            <BoxContent>
+            </BoxContent>
           </GridItems>
         ))}
       </GridContainer>
